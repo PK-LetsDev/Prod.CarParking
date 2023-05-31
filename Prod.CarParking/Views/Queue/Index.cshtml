@@ -1,0 +1,50 @@
+﻿@model Prod.CarParking.Models.QueueNumber
+@{
+    ViewData["Title"] = "CalulateQueue";
+}
+
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="~/js/QueueNumber/index.js"></script>
+</head>
+
+
+<form asp-action="Index">
+    @Html.ValidationSummary()
+
+    <div class="form-group col-4 m-4">
+        <label asp-for="IdCard">ID Card:</label>
+        <input id="idcard" type="text" asp-for="IdCard" autocomplete="on" class="form-control" />
+    </div>
+
+    <div class="form-group col-4 m-4">
+        <label asp-for="EntryTime">Entry time:</label>
+        <input id="entrytime" asp-for="EntryTime" class="form-control" />
+    </div>
+
+   @* <button type="submit" class="btn btn-primary m-3">Count time</button>*@
+
+
+
+    <div class="form-group col-4 m-4">
+        <label asp-for="ExitTime">Exit time:</label>
+        <input id="exittime" asp-for="ExitTime" class="form-control" />
+    </div>
+    <hr></hr>
+
+
+    <div id="parkingduration" class="form-group col-4 m-4">
+        <label asp-for="CountTime">Count time:</label>
+        <p id="counttime" />
+    </div>
+
+    <div id="parkingcost" class="form-group col-4 m-4">
+        <label asp-for="TotalCost">Total cost:</label>
+        <p id="totalcost" />
+    </div>
+
+
+    <button type="button" class="btn btn-primary m-3">Pay </button>
+</form>
